@@ -304,10 +304,10 @@ export default function App() {
   const [orders, setOrders] = useState<OrderItem[]>([INITIAL_ORDER]);
   const [activeOrderId, setActiveOrderId] = useState<string>(INITIAL_ORDER.id);
 
-  const [messages, setMessages] = useState([
+  const [messages, setMessages] = useState<{ id: string; sender: 'support' | 'user'; text: string }[]>([
     {
       id: 'm1',
-      sender: 'support' as const,
+      sender: 'support',
       text: 'Hello! Welcome to the frontend-only demo. Ask anything about your order.',
     },
   ]);

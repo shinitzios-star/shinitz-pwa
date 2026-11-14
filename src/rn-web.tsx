@@ -18,8 +18,8 @@ export const Alert = { alert: (title: string, message?: string) => window.alert(
 export function View({ children, style, ...props }: AnyProps) { return <div {...props} style={flatten(style)}>{children}</div>; }
 export function Text({ children, style, ...props }: AnyProps) { return <span {...props} style={flatten(style)}>{children}</span>; }
 export function ScrollView({ children, style, contentContainerStyle, horizontal, showsHorizontalScrollIndicator, ...props }: AnyProps) {
-  const merged = { ...flatten(style), ...(horizontal ? { overflowX: 'auto', overflowY: 'hidden', whiteSpace: 'nowrap' } : { overflowY: 'auto' }) };
-  const inner = { ...flatten(contentContainerStyle), ...(horizontal ? { display: 'flex', flexDirection: 'row', width: 'max-content', minWidth: '100%' } : {}) };
+  const merged: React.CSSProperties = { ...flatten(style), ...(horizontal ? { overflowX: 'auto', overflowY: 'hidden', whiteSpace: 'nowrap' } : { overflowY: 'auto' }) };
+  const inner: React.CSSProperties = { ...flatten(contentContainerStyle), ...(horizontal ? { display: 'flex', flexDirection: 'row', width: 'max-content', minWidth: '100%' } : {}) };
   return <div {...props} style={merged}><div style={inner}>{children}</div></div>;
 }
 export function TouchableOpacity({ children, style, onPress, ...props }: AnyProps) {
